@@ -1,1 +1,83 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+/*@import "~bootstrap/dist/css/bootstrap.min.css";*/
+
+body {
+  background-color: #00b300;
+  padding: 0;
+  margin: 0;
+}
+.wrapper {
+  margin: 0;
+  padding-top: 3em;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  background-color: #ffffff;
+  width: 400px;
+  height: 600px;
+  padding: 1em;
+  border-radius: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-rows: 50px 500px 50px;
+}
+
+.card-icon-header {
+  text-align: left;
+  font-size: 120px;
+}
+
+.card-icon-footer {
+  font-size: 120px;
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.card-value {
+  margin: auto;
+  text-align: center;
+  font-size: 150px;
+}
+
+.heart .card-icon-header::after,
+.heart .card-icon-footer::after {
+  content: "\2665";
+  color: red;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.diams .card-icon-header::after,
+.diams .card-icon-footer::after {
+  content: "\2666";
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.clubs .card-icon-header::after,
+.clubs .card-icon-footer::after {
+  content: "\2663";
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.spades .card-icon-header::after,
+.spades .card-icon-footer::after {
+  content: "\2660";
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
