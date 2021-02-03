@@ -1,7 +1,7 @@
 /*@import "~bootstrap/dist/css/bootstrap.min.css";*/
 
 body {
-  background-color: #00b300;
+  background-color: #008100;
   padding: 0;
   margin: 0;
 }
@@ -39,6 +39,43 @@ body {
   margin: auto;
   text-align: center;
   font-size: 150px;
+}
+
+.special-card-value {
+  margin: auto;
+  text-align: center;
+  font-size: 200px;
+}
+
+.special-card-header {
+  text-align: left;
+  font-family: Cursive;
+  font-size: 80px;
+}
+
+.special-card-footer {
+  font-size: 80px;
+  font-family: Cursive;
+  text-align: right;
+  display: flex;
+  transform: rotate(180deg);
+}
+
+.heart .special-card-value::after {
+  content: "\2665";
+  color: red;
+}
+
+.clubs .special-card-value::after {
+  content: "\2663";
+}
+
+.diams .special-card-value::after {
+  content: "\2666";
+}
+
+.spades .special-card-value::after {
+  content: "\2660";
 }
 
 .heart .card-icon-header::after,

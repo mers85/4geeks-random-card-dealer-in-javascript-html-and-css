@@ -57,7 +57,19 @@ function renderRandomCard(values, suites) {
   let divIconFooter = createDivAndSetAttributeClass("card-icon-footer");
 
   let divValue = createDivAndSetAttributeClass("card-value");
-  divValue.innerHTML = value;
+
+  if (value === "A") {
+    divValue = createDivAndSetAttributeClass("special-card-value");
+    divIconHeader.classList.remove("card-icon-header");
+    divIconHeader = createDivAndSetAttributeClass("special-card-header");
+    divIconHeader.innerHTML = value;
+
+    divIconFooter.classList.remove("card-icon-footer");
+    divIconFooter = createDivAndSetAttributeClass("special-card-footer");
+    divIconFooter.innerHTML = value;
+  } else {
+    divValue.innerHTML = value;
+  }
 
   let divsChild = [divIconHeader, divValue, divIconFooter];
   addDivChild(divCard, divsChild);
@@ -68,3 +80,5 @@ function renderRandomCard(values, suites) {
   addDivChild(divWrapper, divCard);
   addDivChild(divBody, divWrapper);
 }
+
+function renderSpecialCard() {}
