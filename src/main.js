@@ -38,8 +38,13 @@ function createDivAndSetAttributeClass(strClass) {
 }
 
 function addDivChild(divFather, divChild) {
-  divFather.appendChild(divChild);
-  return divFather;
+  if (Array.isArray(divChild)) {
+    for (let i = 0; i < divChild.length; i++) {
+      divFather.appendChild(divChild[i]);
+    }
+  } else {
+    divFather.appendChild(divChild);
+  }
 }
 
 function renderRandomCard(values, suites) {
@@ -47,22 +52,19 @@ function renderRandomCard(values, suites) {
   let suite = sampleFromArray(suites);
 
   let cardClass = "card" + " " + suite;
-
   let divCard = createDivAndSetAttributeClass(cardClass);
   let divIconHeader = createDivAndSetAttributeClass("card-icon-header");
   let divIconFooter = createDivAndSetAttributeClass("card-icon-footer");
 
   let divValue = createDivAndSetAttributeClass("card-value");
-  let cardValue = document.createTextNode(value);
-  addDivChild(divValue, cardValue);
+  divValue.innerHTML = value;
 
-  divCard.appendChild(divIconHeader);
-  divCard.appendChild(divValue);
-  divCard.appendChild(divIconFooter);
+  let divsChild = [divIconHeader, divValue, divIconFooter];
+  addDivChild(divCard, divsChild);
 
   let divWrapper = createDivAndSetAttributeClass("wrapper");
-  divWrapper.appendChild(divCard);
-
   let divBody = document.getElementsByTagName("body")[0];
-  divBody.appendChild(divWrapper);
+
+  addDivChild(divWrapper, divCard);
+  addDivChild(divBody, divWrapper);
 }
