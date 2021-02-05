@@ -7,7 +7,6 @@ import "./style.css";
 
 window.onload = function() {
   renderRandomCard(cardValues, suites);
-  console.log("Hello world!");
 };
 
 let cardValues = [
@@ -26,26 +25,6 @@ let cardValues = [
   "K"
 ];
 let suites = ["heart", "diams", "clubs", "spades"];
-
-function sampleFromArray(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-
-function createDivAndSetAttributeClass(strClass) {
-  let newDivWithClass = document.createElement("div");
-  newDivWithClass.setAttribute("class", strClass);
-  return newDivWithClass;
-}
-
-function addDivChild(divFather, divChild) {
-  if (Array.isArray(divChild)) {
-    for (let i = 0; i < divChild.length; i++) {
-      divFather.appendChild(divChild[i]);
-    }
-  } else {
-    divFather.appendChild(divChild);
-  }
-}
 
 function renderRandomCard(values, suites) {
   let value = sampleFromArray(values);
@@ -72,13 +51,27 @@ function renderRandomCard(values, suites) {
   }
 
   let divsChild = [divIconHeader, divValue, divIconFooter];
-  addDivChild(divCard, divsChild);
+  addDivsChild(divCard, divsChild);
 
   let divWrapper = createDivAndSetAttributeClass("wrapper");
   let divBody = document.getElementsByTagName("body")[0];
 
-  addDivChild(divWrapper, divCard);
-  addDivChild(divBody, divWrapper);
+  addDivsChild(divWrapper, [divCard]);
+  addDivsChild(divBody, [divWrapper]);
 }
 
-function renderSpecialCard() {}
+function sampleFromArray(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+function createDivAndSetAttributeClass(strClass) {
+  let newDivWithClass = document.createElement("div");
+  newDivWithClass.setAttribute("class", strClass);
+  return newDivWithClass;
+}
+
+function addDivsChild(divFather, divsChild) {
+  for (let i = 0; i < divsChild.length; i++) {
+    divFather.appendChild(divsChild[i]);
+  }
+}
